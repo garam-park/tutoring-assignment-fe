@@ -8,9 +8,9 @@
   - [x] 이미지 표시
   - [x] 타이틀 표시
 - [x] 카테고리 탭 구현
-- [ ] 토픽 검색
-  - [ ] 바로 검색
-  - [ ] 포함 단어 모두 검색
+- [x] 토픽 검색
+  - [x] 바로 검색
+  - [x] 포함 단어 모두 검색
 - [x] 좋아요 구현
   - [x] 영속성을 가질 것
 
@@ -21,40 +21,54 @@
 
 ## Install the dependencies
 
+```sh
 bash
 yarn
+```
 
 # or
 
+```sh
 npm install
+```
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
 
+```sh
 bash
 quasar dev
+```
 
 ### Lint the files
 
+```sh
 bash
 yarn lint
+```
 
 # or
 
+```sh
 npm run lint
+```
 
 ### Format the files
 
+````sh
 bash
 yarn format
 
 # or
-
+``` sh
 npm run format
+````
 
 ### Build the app for production
 
+```sh
 bash
 quasar build
+```
 
 ### Customize the configuration
 
