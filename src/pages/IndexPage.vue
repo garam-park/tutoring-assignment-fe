@@ -2,9 +2,7 @@
   <q-page>
     <q-tab-panels v-model="grade" animated keep-alive>
       <q-tab-panel name="입문">
-        <div class="column wrap justify-center content-around row q-px-md">
-          <topic-card-comp v-for="t in topics" :key="t.idx" :topic="t" />
-        </div>
+        <topics-panel grade="입문" />
       </q-tab-panel>
       <q-tab-panel name="초급">
         <div>초급</div>
@@ -44,7 +42,7 @@
 import { ref } from 'vue';
 import { readTopics } from 'src/stores/topic/topics.store';
 import Topic from 'src/entities/Topic';
-import TopicCardComp from 'src/pages/TopicCardComp.vue';
+import TopicsPanel from 'src/pages/TopicsPanel.vue';
 
 const grade = ref<string>('입문');
 
