@@ -5,16 +5,16 @@
         <topics-panel grade="입문" />
       </q-tab-panel>
       <q-tab-panel name="초급">
-        <div>초급</div>
+        <topics-panel grade="초급" />
       </q-tab-panel>
       <q-tab-panel name="중급">
-        <div>중급</div>
+        <topics-panel grade="중급" />
       </q-tab-panel>
       <q-tab-panel name="중고급">
-        <div>중고급</div>
+        <topics-panel grade="중고급" />
       </q-tab-panel>
       <q-tab-panel name="고급">
-        <div>고급</div>
+        <topics-panel grade="고급" />
       </q-tab-panel>
     </q-tab-panels>
     <q-header class="bg-white">
