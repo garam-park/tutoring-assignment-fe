@@ -11,7 +11,7 @@
       :scroll-target="scrollTargetRef"
       class="column wrap justify-center content-around row q-px-md"
     >
-      <topic-card-comp v-for="t in topics" :key="t.idx" :topic="t" />
+      <topic-card v-for="t in topics" :key="t.idx" :topic="t" />
       <template v-slot:loading>
         <div class="row justify-center q-my-md">
           <q-spinner-dots color="primary" size="40px" />
@@ -52,7 +52,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
 import { QInfiniteScroll, QList } from 'quasar';
-import TopicCardComp from 'src/pages/TopicCardComp.vue';
+import TopicCard from 'src/components/TopicCard.vue';
 import Topic from 'src/entities/Topic';
 import { readTopics } from 'src/stores/topic/topics.store';
 
