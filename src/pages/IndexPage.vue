@@ -3,25 +3,7 @@
     <q-tab-panels v-model="grade" animated keep-alive>
       <q-tab-panel name="입문">
         <div class="column wrap justify-center content-around row q-px-md">
-          <q-card
-            v-for="t in topics"
-            :key="t.idx"
-            flat
-            bordered
-            class="q-mb-md col full-width"
-            style="max-width: 400px; /* 태블릿 크기에 맞게 설정 */"
-          >
-            <q-img :src="t.imgPath" :ratio="4 / 3">
-              <div class="absolute-bottom">
-                <div class="text-subtitle2 text-right">{{ t.grade }}</div>
-                <div class="text-h6">{{ t.title }}</div>
-              </div>
-            </q-img>
-
-            <q-card-actions align="right">
-              <q-btn flat round color="primary" icon="favorite_outline" />
-            </q-card-actions>
-          </q-card>
+          <topic-card-comp v-for="t in topics" :key="t.idx" :topic="t" />
         </div>
       </q-tab-panel>
       <q-tab-panel name="초급">
@@ -62,6 +44,7 @@
 import { ref } from 'vue';
 import { readTopics } from 'src/stores/topic/topics.store';
 import Topic from 'src/entities/Topic';
+import TopicCardComp from 'src/pages/TopicCardComp.vue';
 
 const grade = ref<string>('입문');
 
