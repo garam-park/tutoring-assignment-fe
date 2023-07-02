@@ -29,11 +29,28 @@
       </div>
     </q-infinite-scroll>
     <q-inner-loading :showing="on_load" />
+    <q-page-sticky position="bottom" expand>
+      <q-toolbar>
+        <q-space />
+        <q-input
+          dense
+          standout
+          v-model="query"
+          input-class="query-right"
+          class="full-width"
+          color="primary"
+        >
+          <template v-slot:append>
+            <q-icon name="search" color="primary" />
+          </template>
+        </q-input>
+      </q-toolbar>
+    </q-page-sticky>
   </q-list>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import { QInfiniteScroll, QList } from 'quasar';
 import TopicCardComp from 'src/pages/TopicCardComp.vue';
 import Topic from 'src/entities/Topic';
@@ -61,6 +78,7 @@ const onLoad = (index: number, done: () => void) => {
   readTopics({
     page: ++page.value,
     grade: props.grade,
+    query: trim_query.value,
   })
     .then((ts) => {
       topics.value = ts;
@@ -85,6 +103,7 @@ const refresh = () => {
   readTopics({
     page: page.value,
     grade: props.grade,
+    query: trim_query.value,
   })
     .then((ts) => {
       topics.value = ts;
@@ -96,4 +115,34 @@ const refresh = () => {
       }
     });
 };
+
+const query = ref('');
+const trim_query = computed(() => {
+  return query.value.trim();
+});
+
+watch(
+  () => query.value,
+  () => {
+    console.log(query);
+
+    on_load.value = true;
+    // query 를 했기 때문에 pull to load 를 초기화 해야함 (page = 1, is.reset(), last_page = false)
+    page.value = 1;
+    is.value?.reset();
+    last_page.value = false;
+
+    readTopics({
+      page: page.value,
+      grade: props.grade,
+      query: trim_query.value,
+    })
+      .then((ts) => {
+        topics.value = ts;
+      })
+      .finally(() => {
+        on_load.value = false;
+      });
+  }
+);
 </script>
