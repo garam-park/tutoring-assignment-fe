@@ -21,8 +21,7 @@
 
 ## Install the dependencies
 
-```sh
-bash
+```bash
 yarn
 ```
 
@@ -34,15 +33,13 @@ npm install
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
 
-```sh
-bash
+```bash
 quasar dev
 ```
 
 ### Lint the files
 
-```sh
-bash
+```bash
 yarn lint
 ```
 
@@ -54,8 +51,7 @@ npm run lint
 
 ### Format the files
 
-````sh
-bash
+````bash
 yarn format
 
 # or
@@ -65,8 +61,7 @@ npm run format
 
 ### Build the app for production
 
-```sh
-bash
+```bash
 quasar build
 ```
 
