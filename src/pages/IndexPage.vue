@@ -42,7 +42,7 @@
 import { ref } from 'vue';
 import { readTopics } from 'src/stores/topic/topics.store';
 import Topic from 'src/entities/Topic';
-import TopicsPanel from 'src/pages/TopicsPanel.vue';
+import TopicsPanel from 'src/components/TopicsPanel.vue';
 
 const grade = ref<string>('입문');
 
